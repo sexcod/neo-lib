@@ -56,9 +56,9 @@ class Html
 
         defined('_MODE') || define('_MODE', 'dev');
 
-        $this->header = $this->pathHtml.'header.html';
+        $this->header = $this->pathHtml.'parts/header.html';
         //$this->body   = $this->pathHtml.'body.html';
-        $this->footer = $this->pathHtml.'footer.html';
+        $this->footer = $this->pathHtml.'parts/footer.html';
     }
 
     function body($v = null)
