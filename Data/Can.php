@@ -67,8 +67,8 @@ class Can
         if($extra) $this->useExtra = true;
 
         //get "base" key OR use default
-        if(file_exists(_CONFIG.'keys/can.key')){
-            $base = file_get_contents(_CONFIG.'keys/can.key');
+        if(file_exists(_PHP.'Config/keys/can.key')){
+            $base = file_get_contents(_PHP.'Config/keys/can.key');
             static::$base = [];
             static::$extra_base = [];
             $base = explode("\n", $base);
@@ -138,6 +138,6 @@ class Can
     {
         shuffle(static::$base);
         shuffle(static::$extra_base);
-        return file_put_contents(_CONFIG.'keys/can.key', implode(static::$base)."\n".implode(static::$extra_base));
+        return file_put_contents(_PHP.'Config/keys/can.key', implode(static::$base)."\n".implode(static::$extra_base));
     }
 }

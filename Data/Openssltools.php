@@ -22,7 +22,7 @@ class Openssltools
 
     function __construct()
     {
-        $this->configKeysPath = _CONFIG.'keys/';
+        $this->configKeysPath = _PHP.'Config/keys/';
         $this->fncert = $this->configKeysPath.'certificate.crt';
         $this->fnsscert = $this->configKeysPath.'self_signed_certificate.cer';
         $this->fnprivate = $this->configKeysPath.'private.key';

@@ -21,11 +21,12 @@ class Router
     private $base = '';
     private $request = '';
     private $routers = [];
+    private $params = [];
     private $all = [];
     private $method = 'GET';
 
-    private $defaultController = 'Home';
-    private $defaultAction = 'index';
+    private $defaultController = 'Access';
+    private $defaultAction = 'pageNotFound';
 
     static $node = null;
 
@@ -71,9 +72,9 @@ class Router
         }
 
         //instantiate the controller
-        $controller = new $ctrl(['params' => $res['params'], 'request' => static::rqst()]);
+        $controller = new $ctrl(['params' => $res['params'], 'request' => $this->request]);
 
-        static::$params = $res['params'];
+        $this->params = $res['params'];
 
         if (method_exists($controller, $action))
             return $controller->$action();

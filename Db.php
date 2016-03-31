@@ -82,7 +82,7 @@ class Db
         $this->error[$sql] = $sth->errorInfo();
 
         if($sth->columnCount() > 0) {
-            return $this->result = $sth->fetchAll(PDO::FETCH_CLASS,"Limp\Data\Row", [$this->sql, $parms]);
+            return $this->result = $sth->fetchAll(PDO::FETCH_CLASS,"Neos\Row", [$this->sql, $parms]);
         } else {
             $this->result = false;
             return $this->rows;

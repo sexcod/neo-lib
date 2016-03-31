@@ -54,6 +54,8 @@ class Html
         $this->pathStyle = _WWW.'css/';
         $this->pathScript = _WWW.'js/';
 
+        defined('_MODE') || define('_MODE', 'dev');
+
         $this->header = $this->pathHtml.'header.html';
         //$this->body   = $this->pathHtml.'body.html';
         $this->footer = $this->pathHtml.'footer.html';
@@ -99,11 +101,11 @@ class Html
             file_exists($this->pathHtmlCache.$this->name.'_cache.html'))
                 return true;
 
-        $this->content = file_get_contents($this->header);
+        $this->content = file_exists($this->header) ? file_get_contents($this->header) : '';
         foreach($this->body as $b){
             $this->content .= file_get_contents($b);
         }
-        $this->content .= file_get_contents($this->footer);
+        $this->content .= file_exists($this->footer) ? file_get_contents($this->footer) : '';
 
         if(_MODE == 'dev') $this->assets();
         if(_MODE == 'pro') {
@@ -473,7 +475,7 @@ class Html
         $v = $this->getVar($ret['var']);
         if(!$v) return '';
         //$ret['-content-'] .= $v;
-        $ret['-content-'] .= '<?php echo Limp\Doc\HTML::get("'.trim($ret['var']).'")?>';
+        $ret['-content-'] .= '<?php echo Neos\HTML::get("'.trim($ret['var']).'")?>';
 
         //List type
         if(is_array($v)) return $this->_list($ret);

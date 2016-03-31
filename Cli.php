@@ -29,7 +29,7 @@ class Cli
 
         //Constants:
         $this->cliPath = __DIR__.'/';
-        $this->configKeysPath = _CONFIG.'keys/';
+        $this->configKeysPath = _PHP.'Config/keys/';
         $this->timer = microtime(true);
 
         //Command line settings...
