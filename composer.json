@@ -1,0 +1,26 @@
+{
+    "name": "neos/lib",
+    "description": "Neos Basic Library",
+    "keywords": ["framework","neos", "simple"],
+    "license": "MIT",
+    "type": "library",
+    "homepage": "http://neos.tk",
+    "authors": [{
+        "name": "Bill Rocha",
+        "email": "prbr@ymail.com"
+    }],
+    "config": {
+        "preferred-install": "dist"
+    },
+    "archive": {
+        "exclude": ["/doc", "/*.json", "/.git", "/*.md"]
+    },
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {"Neos\\": ""}
+    }
+}

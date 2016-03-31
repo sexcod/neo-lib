@@ -1,2 +1,2 @@
-# neo-lib
+# Neo-lib
 Libraries for NEO
